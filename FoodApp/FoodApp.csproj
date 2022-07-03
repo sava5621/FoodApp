@@ -49,9 +49,42 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\Inter-Bold.otf" />
 	  <None Remove="Resources\Fonts\Inter-Medium.otf" />
 	  <None Remove="Resources\Fonts\Inter-Regular.otf" />
 	  <None Remove="Resources\Fonts\Inter-SemiBold.otf" />
+	  <None Remove="Resources\Images\account_icon.svg" />
+	  <None Remove="Resources\Images\booking_icon.svg" />
+	  <None Remove="Resources\Images\booking_more.svg" />
+	  <None Remove="Resources\Images\burger.svg" />
+	  <None Remove="Resources\Images\home_screen.svg" />
+	  <None Remove="Resources\Images\location.svg" />
+	  <None Remove="Resources\Images\order.svg" />
+	  <None Remove="Resources\Images\see_all.svg" />
+	  <None Remove="Resources\Images\shell_backgr.svg" />
+	  <None Remove="Resources\Images\test_car1.png" />
+	  <None Remove="Resources\Images\test_car2.png" />
+	  <None Remove="Resources\Images\test_carusel_icon.svg" />
+	  <None Remove="Resources\Images\test_coll1.png" />
+	  <None Remove="Resources\Images\test_coll2.png" />
+	  <None Remove="Resources\Images\test_icon_user.png" />
+	  <None Remove="Resources\Images\test_Indicator_view.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview4" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="View\Account.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Booking.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\HomeScreen.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

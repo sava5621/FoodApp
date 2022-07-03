@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        x:Class="FoodApp.MainPage"
+        xmlns:view="clr-namespace:FoodApp.View"
+        xmlns:viewmodel ="clr-namespace:FoodApp.ViewModel">
+
+    <TabBar>
+
+        <Tab Route="home"
+             Icon="home_screen.svg">
+            <ShellContent ContentTemplate="{DataTemplate  view:HomeScreen}"/>
+        </Tab>
+        <Tab Route="booking"
+             Icon="booking_icon.svg">
+            <ShellContent ContentTemplate="{DataTemplate  view:Booking}"/>
+        </Tab>
+        <Tab Route="account"
+             Icon="account_icon.svg">
+            <ShellContent ContentTemplate="{DataTemplate  view:Account}"/>
+        </Tab>
+    </TabBar>
+</Shell>
+        
+    
+

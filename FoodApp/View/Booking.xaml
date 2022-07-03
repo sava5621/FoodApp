@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodApp.View.Booking"
+             xmlns:model="clr-namespace:FoodApp.Model"
+             Title="Booking"
+             BackgroundColor="#fff">
+    <Grid RowDefinitions="Auto,Auto,Auto" Padding="-2">
+        <Border
+            BackgroundColor="#32B768">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0,0,16,16"/>
+            </Border.StrokeShape>
+            <Label Text="Booking History"                
+                   FontSize="16"
+                   Margin="0,24,0,24"
+                   HorizontalOptions="Center"
+                   FontFamily="SemiBold"
+                   TextColor="#fff"/>
+        </Border>
+        <CollectionView Margin="12,13,12,0"
+                        Grid.Row="1"
+                        BackgroundColor="Transparent"
+                        ItemsSource="{Binding bookingList}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:BookingList">
+                    <Frame
+                                Background="#fff"
+                                Padding="10"
+                                Margin="6,3,6,3"
+                                CornerRadius="16"
+                                BorderColor="#fff"
+                                HorizontalOptions="Start"
+                                HasShadow="True">
+                        <Frame.Shadow>
+                            <Shadow Brush="#E9E9E9"
+                                    Radius="40"
+                                            Offset="10,10"
+                                            Opacity="0.2" />
+                        </Frame.Shadow>
+                        <Grid ColumnDefinitions="Auto, *">
+                           
+                            <Frame BorderColor="Transparent"
+                                           Padding="0"
+                                           Grid.Column="0"
+                                           CornerRadius="8">
+                                <Image Source="{Binding image}"/>
+                            </Frame>
+                            <VerticalStackLayout VerticalOptions="Center"
+                                                         Margin="15,0,0,0"
+                                                         Grid.Column="1">
+                                <Label Text="{Binding title}"
+                                               FontFamily="SemiBold"
+                                               FontSize="16"
+                                               TextColor="#1F2937"
+                                               />
+                                <HorizontalStackLayout Padding="0">
+                                    <Image VerticalOptions="Center"
+                                               Source="location.svg"/>
+                                    <Label Text="{Binding additionally}"
+                                               FontSize="10"
+                                               FontFamily="Medium"
+                                               TextColor="#6B7280"/>
+
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                            <Button Grid.Column="1"
+                                            WidthRequest="88"
+                                            HeightRequest="25"
+                                            Padding="0"
+                                            CornerRadius="8"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="End"
+                                            Text="Book"
+                                            FontSize="12"
+                                            FontFamily="SemiBold"
+                                            TextColor="#ffffff"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <ImageButton Grid.Row="2" Source="booking_more.svg"
+                     VerticalOptions="Start"
+                     Margin="12"/>
+    </Grid>
+</ContentPage>

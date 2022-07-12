@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodApp.View.DetailsRestaurant"
+             xmlns:model="clr-namespace:FoodApp.Model"
+             xmlns:viewmodel="clr-namespace:FoodApp.ViewModel"
+             Title="DetailsRestaurant" Padding="-1">
+    <Grid RowDefinitions="Auto, Auto, *"
+          Padding="0"
+          Margin="0">
+        <Border Grid.Row="0"
+             
+             Stroke="Transparent"
+                                Background="#32B768"
+                                Padding="10"
+                                Margin="0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0,0,16,16" />
+            </Border.StrokeShape>
+            <Grid ColumnDefinitions="*,3*,*">
+                <Label Text="Details Restaurant"
+                       TextColor="#fff"
+                       Grid.Column="1"                  
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontSize="12"
+                       FontFamily="SemiBold"/>
+                <ImageButton Grid.Column="0"
+                             Source="icon_back.svg"
+                             HorizontalOptions="Start"
+                             VerticalOptions="Center"/>
+            </Grid>
+           
+        </Border>
+        <Border Grid.Row="1"
+                Stroke="Transparent"
+                Background="#fff"
+                Padding="10"
+                Margin="0,8,0,15">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="16,16,16,16" />
+            </Border.StrokeShape>
+            <VerticalStackLayout Margin="18,20,18,3">
+                <Label Text="{Binding BookingItem.title}"
+                       TextColor="#1F2937"                                 
+                       HorizontalOptions="Start"
+                       FontSize="20"
+                       FontFamily="SemiBold"/>
+                <HorizontalStackLayout>
+                    <Image Source="location.svg"/>
+                    <Label Text="{Binding BookingItem.one_line_additionally}"
+                           TextColor="#6B7280"                                 
+                           HorizontalOptions="Start"
+                           FontSize="12"
+                           FontFamily="Medium"/>
+                </HorizontalStackLayout>
+                <Image Source="{Binding BookingItem.fullSizeImage}"
+                       Aspect="AspectFill"
+                       Margin="0,25,0,25"
+                       HorizontalOptions="Center"/>
+                <Grid ColumnDefinitions="*,*">
+                    <VerticalStackLayout Grid.Column="0">
+                        <HorizontalStackLayout>
+                            <Image Source="time_open.svg"
+                                   Margin="0,0,4,0"/>
+
+                            <Label Text="Open today"
+                                   TextColor="#6B7280"                                 
+                                   HorizontalOptions="Start"
+                                   FontSize="12"
+                                   FontFamily="Medium"/>    
+                        </HorizontalStackLayout>
+                        <Label Text="{Binding BookingItem.time_open}"
+                               TextColor="#1F2937"                                 
+                               HorizontalOptions="Start"
+                               FontSize="12"
+                               FontFamily="SemiBold"/>
+                    </VerticalStackLayout>
+                    <HorizontalStackLayout Grid.Column="1"
+                                           HorizontalOptions="End"
+                                           VerticalOptions="Center">
+                        <Image Source="icon_visit.svg"/>
+                        <Label Text="Visit the Restaurant"
+                               TextColor="#2C8DFF"                                 
+                               HorizontalOptions="Start"
+                               FontSize="12"
+                               FontFamily="SemiBold"/>
+                    </HorizontalStackLayout>
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+        <Frame Grid.Row="2"
+                BorderColor="#ECECEC"
+                CornerRadius="16"
+                Background="#fff"
+                Padding="0"
+                Margin="0"
+                HasShadow="False">
+            <Grid ColumnDefinitions="3*,*"
+                  RowDefinitions="Auto,*">
+                <VerticalStackLayout HorizontalOptions="Start" 
+                                     Grid.Row="0"
+                                     Grid.Column="0"
+                                     Margin="22">
+                    <Label Text="List other restaurant"/>
+                    <Label Text="check the menu at this restaurant"/>
+                </VerticalStackLayout>
+                <Image Grid.Column="1"
+                       Grid.Row="0"
+                       Margin="22"
+                       Source="see_all_green.svg"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center"/>
+                <CollectionView Margin="18,0,18,0"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="Transparent"
+                        ItemsSource="{Binding Path=bookingListI}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:BookingList">
+                            <Frame Background="#fff"
+                                   Padding="10"
+                                   BorderColor="#ECECEC"
+                                   Margin="0,4,0,4"
+                                   CornerRadius="10"
+                                   HasShadow="False">
+                                <Grid ColumnDefinitions="Auto, *"
+                                      HorizontalOptions="FillAndExpand">
+                                    <Frame BorderColor="Transparent"
+                                               Padding="0"
+                                               Grid.Column="0"
+                                               CornerRadius="8">
+                                        <Image Source="{Binding image}"/>
+                                    </Frame>
+                                    <VerticalStackLayout VerticalOptions="Center"
+                                                         Margin="15,0,0,0"
+                                                         Grid.Column="1">
+                                        <Label Text="{Binding title}"
+                                               FontFamily="SemiBold"
+                                               FontSize="16"
+                                               TextColor="#1F2937"/>
+                                        <HorizontalStackLayout Padding="0">
+                                            <Image VerticalOptions="Center"
+                                                       Source="location.svg"
+                                                   Margin="0,0,4,0"/>
+                                            <Label Text="{Binding additionally}"
+                                                       FontSize="10"
+                                                       FontFamily="Medium"
+                                                       TextColor="#6B7280"/>
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                    <Button Grid.Column="2"
+                                            Padding="4"
+                                            WidthRequest="75"
+                                            HeightRequest="25"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="End"
+                                            Text="Check"
+                                            FontFamily="SemiBold"
+                                            FontSize="10"/>
+
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+            
+        </Frame>
+    </Grid>
+</ContentPage>

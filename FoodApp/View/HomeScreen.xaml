@@ -4,7 +4,7 @@
              x:Class="FoodApp.View.HomeScreen"
              xmlns:model="clr-namespace:FoodApp.Model"
              Title="HomeScreen">
-    <Grid RowDefinitions="Auto, *">
+    <Grid RowDefinitions="Auto, *" Padding="0">
         <Grid ColumnDefinitions="*,5*,*"
               RowDefinitions="1*,1*"
               Margin="15,20,15,18">
@@ -56,7 +56,7 @@
 
 
         </Grid>
-        <ScrollView Grid.Row="1">
+        <ScrollView Grid.Row="1" Padding="0">
             <VerticalStackLayout>
                 <CarouselView HeightRequest="150" 
                               Loop="False"
@@ -66,13 +66,14 @@
                               ItemsSource="{Binding carousel_advertisement}">
                     <CarouselView.ItemTemplate>
                         <DataTemplate x:DataType="model:Carousel_advertisement">
-                            <Frame 
-                                   
-                                   Background="{Binding gradientBrush}"
-                                   Padding="0"
-                                   BorderColor="Transparent"
-                                   CornerRadius="27" 
+                            <Border Padding="0"
+                                    Background="{Binding gradientBrush}"
+                                   Stroke="Transparent"
                                    Margin="5,15,5,15">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="27,27,27,27" />
+                                </Border.StrokeShape>
+                              
                                 <Grid RowDefinitions="*,*,*"
                                       ColumnDefinitions="*,2*" Padding="0">
                                     <Image Source="{Binding icon}"
@@ -105,23 +106,20 @@
                                             <Image Source="order.svg"
                                                    VerticalOptions="End"/>
                                         </HorizontalStackLayout>
-
                                     </VerticalStackLayout>
-
                                     <Image Source="{Binding image}" 
                                            Grid.Column="1"
                                            Grid.Row="0"
                                            Grid.RowSpan="3"
                                            HorizontalOptions="End"/>
-
                                 </Grid>
-                            </Frame>
+                            </Border>
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
                 </CarouselView>
                 <IndicatorView x:Name="indicatorView"
-                   IndicatorColor="#32B768"
-                   SelectedIndicatorColor="#E2E2E2"
+                   IndicatorColor="#E2E2E2"
+                   SelectedIndicatorColor="#32B768"
                    HorizontalOptions="Center" />
                 <Grid Margin="18,36,18,0" ColumnDefinitions="3*,*">
                     <VerticalStackLayout Grid.Column="0">
@@ -141,7 +139,7 @@
                                  Grid.Column="1"
                                  />
                 </Grid>
-                <CollectionView Margin="12,16,12,0"
+                <CollectionView Margin="0,16,0,0"
                                 BackgroundColor="Transparent"
                                 ItemsSource="{Binding carousel_offers}">
                     <CollectionView.ItemsLayout>
@@ -151,41 +149,46 @@
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:Carousel_offers">
-                            <Frame
+                            <VerticalStackLayout Padding="2">
+                                <Border
+                                Stroke="Transparent"
                                 Background="#fff"
                                 Padding="10"
                                 Margin="6,0,6,0"
-                                CornerRadius="16"
-                                BorderColor="Transparent"
-                                HorizontalOptions="Start"
-                                HasShadow="True">
-                                <Frame.Shadow>
-                                    <Shadow Brush="Black"
-                                            Offset="10,10"
-                                            Opacity="0.8" />
-                                </Frame.Shadow>
-                                <VerticalStackLayout>
-                                    <Frame BorderColor="Transparent"
+                                HorizontalOptions="Start">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="11,11,11,11" />
+                                    </Border.StrokeShape>
+                                    <Border.Shadow>
+                                        <Shadow Brush="Black"
+                                            Offset="0,0"
+                                            Radius="10"
+                                            Opacity="0.2" />
+                                    </Border.Shadow>
+                                    <VerticalStackLayout>
+                                        <Frame BorderColor="Transparent"
                                            Padding="0"
                                            CornerRadius="8">
-                                        <Image Source="{Binding image}"/>
-                                    </Frame>
-                                    <Label Text="{Binding title}"
+                                            <Image Source="{Binding image}"/>
+                                        </Frame>
+                                        <Label Text="{Binding title}"
                                            FontFamily="SemiBold"
                                            FontSize="16"
                                            TextColor="#1F2937"
                                            Margin="0,15,0,0"/>
-                                    <HorizontalStackLayout Padding="0">
-                                        <Image VerticalOptions="Start"
+                                        <HorizontalStackLayout Padding="0">
+                                            <Image VerticalOptions="Start"
                                                Source="location.svg"/>
-                                        <Label Text="{Binding additionally}"
+                                            <Label Text="{Binding additionally}"
                                                FontSize="10"
                                                FontFamily="Medium"
                                                TextColor="#6B7280"/>
-                                    </HorizontalStackLayout>
+                                        </HorizontalStackLayout>
 
-                                </VerticalStackLayout>
-                            </Frame>
+                                    </VerticalStackLayout>
+                                </Border>
+                            </VerticalStackLayout>
+                            
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
@@ -212,45 +215,48 @@
                                 ItemsSource="{Binding сollectionViewRestorsan}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:CollectionViewRestorsan">
-                            <Frame
+                            <VerticalStackLayout Padding="2">
+                                <Border
+                                Stroke="Transparent"
                                 Background="#fff"
                                 Padding="10"
                                 Margin="6,3,6,3"
-                                CornerRadius="16"
-                                BorderColor="Transparent"
-                                HorizontalOptions="Start"
-                                HasShadow="True">
-                                <Frame.Shadow>
-                                    <Shadow Brush="Black"
-                                            Offset="10,10"
-                                            Opacity="0.8" />
-                                </Frame.Shadow>
-                                <Grid ColumnDefinitions="Auto, *">
-                                    <Frame BorderColor="Transparent"
+                                HorizontalOptions="Start">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="11,11,11,11" />
+                                    </Border.StrokeShape>
+                                    <Border.Shadow>
+                                        <Shadow Brush="Black"
+                                            Offset="0,0"
+                                            Radius="10"
+                                            Opacity="0.2" />
+                                    </Border.Shadow>
+                                    <Grid ColumnDefinitions="Auto, *">
+                                        <Frame BorderColor="Transparent"
                                            Padding="0"
                                            Grid.Column="0"
                                            CornerRadius="8">
-                                        <Image Source="{Binding image}"/>
-                                    </Frame>
-                                    <VerticalStackLayout VerticalOptions="Center"
+                                            <Image Source="{Binding image}"/>
+                                        </Frame>
+                                        <VerticalStackLayout VerticalOptions="Center"
                                                          Margin="15,0,0,0"
                                                          Grid.Column="1">
-                                        <Label Text="{Binding title}"
+                                            <Label Text="{Binding title}"
                                                FontFamily="SemiBold"
                                                FontSize="16"
                                                TextColor="#1F2937"
                                                />
-                                        <HorizontalStackLayout Padding="0">
-                                            <Image VerticalOptions="Center"
+                                            <HorizontalStackLayout Padding="0">
+                                                <Image VerticalOptions="Center"
                                                Source="location.svg"/>
-                                            <Label Text="{Binding additionally}"
+                                                <Label Text="{Binding additionally}"
                                                FontSize="10"
                                                FontFamily="Medium"
                                                TextColor="#6B7280"/>
 
-                                        </HorizontalStackLayout>
-                                    </VerticalStackLayout>
-                                    <Button Grid.Column="1"
+                                            </HorizontalStackLayout>
+                                        </VerticalStackLayout>
+                                        <Button Grid.Column="1"
                                             WidthRequest="88"
                                             HeightRequest="25"
                                             Padding="0"
@@ -261,8 +267,10 @@
                                             FontSize="12"
                                             FontFamily="SemiBold"
                                             TextColor="#ffffff"/>
-                                </Grid>
-                            </Frame>
+                                    </Grid>
+                                </Border>
+                            </VerticalStackLayout>
+                      
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>

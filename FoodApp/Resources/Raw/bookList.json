@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Ambrosia Hotel & Restaurant",
+    "additionally": "kazi Deiry, Taiger Pass\nChittagong",
+    "image": "test_coll1.png",
+    "one_line_additionally": "kazi Deiry, Taiger Pass Chittagong",
+    "fullSizeImage": "test_full_size_image.png",
+    "time_open": "10:00 AM - 12:00 PM"
+  },
+  {
+    "title": "Tava Restaurant",
+    "additionally": "Zakir Hossain Rd, \nChittagong",
+    "image": "test_coll2.png",
+    "one_line_additionally": "Zakir Hossain Rd, Chittagong",
+    "fullSizeImage": "test_full_size_image.png",
+    "time_open": "10:00 AM - 11:00 PM"
+  },
+  {
+    "title": "Haatkhola",
+    "additionally": "6 Surson Road, \nChittagong",
+    "image": "test_coll1.png",
+    "one_line_additionally": "6 Surson Road, Chittagong",
+    "fullSizeImage": "test_full_size_image.png",
+    "time_open": "10:00 AM - 10:00 PM"
+  },
+  {
+    "title": "Tava Restaurant",
+    "additionally": "Zakir Hossain Rd, \nChittagong",
+    "image": "test_coll2.png",
+    "one_line_additionally": "Zakir Hossain Rd, Chittagong",
+    "fullSizeImage": "test_full_size_image.png",
+    "time_open": "10:00 AM - 11:00 PM"
+  },
+  {
+    "title": "Tava Restaurant",
+    "additionally": "Zakir Hossain Rd, \nChittagong",
+    "image": "test_coll2.png",
+    "one_line_additionally": "Zakir Hossain Rd, Chittagong",
+    "fullSizeImage": "test_full_size_image.png",
+    "time_open": "10:00 AM - 11:00 PM"
+  },
+  {
+    "title": "Tava Restaurant",
+    "additionally": "Zakir Hossain Rd, \nChittagong",
+    "image": "test_coll2.png",
+    "one_line_additionally": "Zakir Hossain Rd, Chittagong",
+    "fullSizeImage": "test_full_size_image.png",
+    "time_open": "10:00 AM - 11:00 PM"
+  },
+  {
+    "title": "Tava Restaurant",
+    "additionally": "Zakir Hossain Rd, \nChittagong",
+    "image": "test_coll2.png",
+    "one_line_additionally": "Zakir Hossain Rd, Chittagong",
+    "fullSizeImage": "test_full_size_image.png",
+    "time_open": "10:00 AM - 11:00 PM"
+  },
+  {
+    "title": "Tava Restaurant",
+    "additionally": "Zakir Hossain Rd, \nChittagong",
+    "image": "test_coll2.png",
+    "one_line_additionally": "Zakir Hossain Rd, Chittagong",
+    "fullSizeImage": "test_full_size_image.png",
+    "time_open": "10:00 AM - 11:00 PM"
+  }
+
+]

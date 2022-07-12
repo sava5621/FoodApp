@@ -2,10 +2,202 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FoodApp.View.Account"
+             xmlns:model="clr-namespace:FoodApp.Model"
              Title="Account">
-    <StackLayout>
-        <Label Text="Account"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-    </StackLayout>
+    <VerticalStackLayout >
+        <Border Padding="13" 
+                Stroke="Transparent"
+                Margin="25,61,25,0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="11,11,11,11" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow Brush="Black"
+                Offset="0,0"
+                Radius="10"
+                Opacity="0.2" />
+            </Border.Shadow>
+            <Grid ColumnDefinitions="*,2*,*">
+                <Image Source="{Binding Image}" Grid.Column="0"/>
+                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                    <Label Text="{Binding Name}" 
+                           FontFamily="SemiBold"
+                           TextColor="#374151"
+                           FontSize="16"/>
+                    <Label Text="{Binding Email}"
+                           FontFamily="Medium"
+                           TextColor="#6B7280"
+                           FontSize="10"/>
+                </VerticalStackLayout>
+                <Grid Grid.Column="2"
+                      ColumnDefinitions="*,*"
+                      RowDefinitions="*,*">
+                    <ImageButton Source="notify.svg"
+                                 WidthRequest="35"
+                                 HeightRequest="35"
+                                 Grid.Column="2"
+                                 Grid.RowSpan="2"/>
+                    <Border Grid.Column="1"
+                            IsVisible="{Binding Notify_is_visible}"
+                            Stroke="Transparent"
+                            Grid.Row="0"
+                            BackgroundColor="#F24F4F"
+                            Padding="0"
+                            HorizontalOptions="End"
+                            WidthRequest="15"
+                            HeightRequest="15"
+                            VerticalOptions="Start">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="7,7,7,7" />
+                        </Border.StrokeShape>
+                        <Label Text="{Binding Notify_count}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               TextColor="#F9F9F9"
+                               FontFamily="Medium"
+                               FontSize="8">
+                        </Label>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Border>
+        <Border Padding="23" 
+                Stroke="Transparent"
+                Margin="25,40,25,0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="11,11,11,11" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow Brush="Black"
+                Offset="0,0"
+                Radius="10"
+                Opacity="0.2" />
+            </Border.Shadow>
+            <Grid ColumnDefinitions="*,3*,*">
+                <Image Source="icon_acc.svg" 
+                       Grid.Column="0"
+                       HeightRequest="24"
+                       WidthRequest="24"/>
+                <Label Text="Account setting"
+                       FontFamily="Regular"
+                       TextColor="#374151"
+                       HorizontalOptions="Start"
+                       FontSize="18"
+                       VerticalOptions="Center"
+                       Grid.Column="1"/>
+
+                <ImageButton Source="icon_change.svg"
+                                 WidthRequest="25"
+                                 HorizontalOptions="End"
+                                 HeightRequest="25"
+                                 Grid.Column="2"
+                                 Grid.RowSpan="2"/>
+            </Grid>
+        </Border>
+        <Border Padding="13" 
+                Stroke="Transparent"
+                Margin="25,12,25,0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="11,11,11,11" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow Brush="Black"
+                Offset="0,0"
+                Radius="10"
+                Opacity="0.2" />
+            </Border.Shadow>
+            <VerticalStackLayout>
+                <Grid ColumnDefinitions="*,2*,*"
+                      Margin="0,24,0,20">
+                    <Image Source="icon_lang.svg"  
+                           Grid.Column="0"
+                           HeightRequest="24"
+                           WidthRequest="24"/>
+                    <Label Text="Language"
+                       FontFamily="Regular"
+                       TextColor="#374151"
+                       FontSize="18"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       Grid.Column="1"/>
+                    <ImageButton Source="icon_next.svg"
+                                 WidthRequest="15"
+                                 HorizontalOptions="End"
+                                 HeightRequest="15"
+                                 Grid.Column="2"
+                                 Grid.RowSpan="2"/>
+                </Grid>
+                <Grid ColumnDefinitions="*,2*,*"
+                      Margin="0,0,0,20">
+                    <Image Source="icon_feedb.svg" 
+                           Grid.Column="0"
+                           HeightRequest="24"
+                           WidthRequest="24"/>
+                    <Label Text="Feedback"
+                       FontFamily="Regular"
+                       TextColor="#374151"
+                       FontSize="18"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       Grid.Column="1"/>
+                    <ImageButton Source="icon_next.svg"
+                                 WidthRequest="15"
+                                 HorizontalOptions="End"
+                                 HeightRequest="15"
+                                 Grid.Column="2"
+                                 Grid.RowSpan="2"/>
+                </Grid>
+                <Grid ColumnDefinitions="*,2*,*"
+                      Margin="0,0,0,20">
+                    <Image Source="icon_rate.svg" 
+                           Grid.Column="0"
+                           HeightRequest="24"
+                           WidthRequest="24"/>
+                    <Label Text="Rate us"
+                       FontFamily="Regular"
+                       TextColor="#374151"
+                       FontSize="18"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       Grid.Column="1"/>
+                    <ImageButton Source="icon_next.svg"
+                                 WidthRequest="15"
+                                 HorizontalOptions="End"
+                                 HeightRequest="15"
+                                 Grid.Column="2"
+                                 Grid.RowSpan="2"/>
+                </Grid>
+                <Grid ColumnDefinitions="*,2*,*"
+                      Margin="0,0,0,24">
+                    <Image Source="icon_new_vers.svg" 
+                           Grid.Column="0"
+                           HeightRequest="24"
+                           WidthRequest="24"/>
+                    <Label Text="New Version"
+                       FontFamily="Regular"
+                       TextColor="#374151"
+                       FontSize="18"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       Grid.Column="1"/>
+                    <ImageButton Source="icon_next.svg"
+                                 WidthRequest="15"
+                                 HorizontalOptions="End"
+                                 HeightRequest="15"
+                                 Grid.Column="2"
+                                 Grid.RowSpan="2"/>
+                </Grid>
+            </VerticalStackLayout>
+            
+        </Border>
+        <Button Text="Logout"
+                WidthRequest="110"
+                HeightRequest="35"
+                Padding="0"
+                Margin="0,40,0,0"
+                BackgroundColor="#EB4646"
+                FontSize="16"
+                FontFamily="SemiBold"
+                HorizontalOptions="Center"/>
+    </VerticalStackLayout>
 </ContentPage>

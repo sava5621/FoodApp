@@ -58,17 +58,31 @@
 	  <None Remove="Resources\Images\booking_more.svg" />
 	  <None Remove="Resources\Images\burger.svg" />
 	  <None Remove="Resources\Images\home_screen.svg" />
+	  <None Remove="Resources\Images\icon_acc.svg" />
+	  <None Remove="Resources\Images\icon_back.svg" />
+	  <None Remove="Resources\Images\icon_change.svg" />
+	  <None Remove="Resources\Images\icon_feedb.svg" />
+	  <None Remove="Resources\Images\icon_lang.svg" />
+	  <None Remove="Resources\Images\icon_new_vers.svg" />
+	  <None Remove="Resources\Images\icon_next.svg" />
+	  <None Remove="Resources\Images\icon_rate.svg" />
+	  <None Remove="Resources\Images\icon_visit.svg" />
 	  <None Remove="Resources\Images\location.svg" />
+	  <None Remove="Resources\Images\notify.svg" />
 	  <None Remove="Resources\Images\order.svg" />
 	  <None Remove="Resources\Images\see_all.svg" />
+	  <None Remove="Resources\Images\see_all_green.svg" />
 	  <None Remove="Resources\Images\shell_backgr.svg" />
 	  <None Remove="Resources\Images\test_car1.png" />
 	  <None Remove="Resources\Images\test_car2.png" />
 	  <None Remove="Resources\Images\test_carusel_icon.svg" />
 	  <None Remove="Resources\Images\test_coll1.png" />
 	  <None Remove="Resources\Images\test_coll2.png" />
+	  <None Remove="Resources\Images\test_full_size_image.png" />
 	  <None Remove="Resources\Images\test_icon_user.png" />
 	  <None Remove="Resources\Images\test_Indicator_view.png" />
+	  <None Remove="Resources\Images\time_open.svg" />
+	  <None Remove="Resources\Raw\bookList.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -80,6 +94,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Booking.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\DetailsRestaurant.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\HomeScreen.xaml">

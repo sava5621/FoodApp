@@ -14,7 +14,7 @@
 
         <Tab Route="home"
              Icon="home_screen.svg">
-            <ShellContent ContentTemplate="{DataTemplate  view:HomeScreen}"/>
+            <ShellContent ContentTemplate="{DataTemplate  view:HardHome}"/>
         </Tab>
         <Tab Route="booking"
              Icon="booking_icon.svg">

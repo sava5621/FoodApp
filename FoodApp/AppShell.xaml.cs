@@ -5,7 +5,8 @@ public partial class AppShell : Shell
     public AppShell()
     {
         InitializeComponent();
-        FoodServices.GetBookingData();
         Routing.RegisterRoute(nameof(DetailsRestaurant), typeof(DetailsRestaurant));
+        Routing.RegisterRoute(nameof(MapPage), typeof(MapPage));
     }
+
 }

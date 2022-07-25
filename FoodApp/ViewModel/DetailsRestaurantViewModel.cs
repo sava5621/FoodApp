@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoodApp.Model.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,12 +16,9 @@ namespace FoodApp.ViewModel
         }
         [ObservableProperty]
         BookingList bookingItem;
+        [ObservableProperty]
+        string fI = FoodServices.BookingData[0].fullSizeImage;
         public ObservableCollection<BookingList> bookingListI { get; set; } = FoodServices.BookingData;
-        [RelayCommand]
-        async Task GoToDetailsItem()
-        {
-            await Shell.Current.DisplayAlert("Error!", bookingListI.Count.ToString(), "OK");
 
-        }
     }
 }

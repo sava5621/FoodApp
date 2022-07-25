@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodApp.View.HardHome"
+             xmlns:model="clr-namespace:FoodApp.Model.View"
+             xmlns:viewmodel="clr-namespace:FoodApp.ViewModel"
+             x:DataType="viewmodel:HardHomeScreenViewModel"
+             Title="HardHome">
+    <Grid RowDefinitions="*, 5*" Padding="0">
+        <Grid Grid.Row="0" 
+              ColumnDefinitions="*,5*,*"
+              RowDefinitions="*,*"
+              Margin="15,20,15,18">
+            <Image Source="burger.svg" 
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   HeightRequest="20"
+                   WidthRequest="20"/>
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                       Grid.Row="0"
+                                       Grid.Column="1">
+                <Image Source="location.svg" 
+                       HeightRequest="16"
+                       WidthRequest="16"/>
+                <Label Text="{Binding Location}"
+                       VerticalOptions="Center"
+                       Margin="4,0,0,0"
+                       FontFamily="Medium"
+                       FontSize="12"/>
+            </HorizontalStackLayout>
+            <Image HorizontalOptions="End"
+                               Source="{Binding Icon_user}" 
+                               HeightRequest="36"
+                               WidthRequest="36"
+                               Grid.Row="0"
+                               Grid.Column="2"/>
+            <Frame Grid.Column="1"
+                   Grid.Row="1"
+                   Padding="1"
+                   Margin="0,18,0,0"
+                   HeightRequest="36"
+                   BackgroundColor="#E6E7E9"
+                   BorderColor="Transparent"
+                   CornerRadius="10">
+                <SearchBar Grid.Column="1"
+                       Grid.Row="1"
+                       Placeholder="Search"
+                       PlaceholderColor="#9CA3AF"
+                       Margin="10,5,10,5"
+                       BackgroundColor="Transparent"/>
+            </Frame>
+        </Grid>
+        <CollectionView Grid.Row="1" 
+                        ItemsSource="{Binding homes}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:HomeModel">
+                    <VerticalStackLayout>
+                        <CarouselView HeightRequest="150" 
+                              Loop="False"
+                              PeekAreaInsets="50"
+                              IndicatorView="indicatorView"
+                              BackgroundColor="Transparent"
+                              ItemsSource="{Binding carousel_advertisement}">
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate x:DataType="model:Carousel_advertisement">
+                                    <Border Padding="0"
+                                        HeightRequest="120"
+                                        WidthRequest="280"
+                                        Background="{Binding gradientBrush}"
+                                        Stroke="Transparent"
+                                        Margin="5,15,5,15">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="27,27,27,27" />
+                                        </Border.StrokeShape>
+
+                                        <Grid RowDefinitions="*,*,*"
+                                          ColumnDefinitions="*,2*" Padding="0">
+                                            <Image Source="{Binding icon}"
+                                               Grid.Row="0" 
+                                               Grid.Column="0"
+                                               Aspect="AspectFit"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Start"
+                                               Margin="0,0,0,0"
+                                               HeightRequest="46"
+                                               WidthRequest="46"/>
+                                            <VerticalStackLayout Grid.Column="0"
+                                                             Grid.Row="1">
+                                                <Label Text="{Binding title}" 
+                                                   FontFamily="Bold"
+                                                   FontSize="14"
+                                                   TextColor="#fff"
+                                                   Margin="7,0,0,0"/>
+                                                <Label Text="{Binding additionally}"
+                                                   FontFamily="Medium"
+                                                   TextColor="#fff"
+                                                   Margin="7,0,0,0"
+                                                   FontSize="7"/>
+                                                <HorizontalStackLayout
+                                                Margin="7,3,0,0">
+                                                    <Label Text="Order"      
+                                                       FontFamily="Bold"
+                                                       TextColor="#fff"                                              
+                                                       FontSize="8"/>
+                                                    <Image Source="order.svg"
+                                                       VerticalOptions="End"/>
+                                                </HorizontalStackLayout>
+                                            </VerticalStackLayout>
+                                            <Image Source="{Binding image}" 
+                                               Grid.Column="1"
+                                               Grid.Row="0"
+                                               Grid.RowSpan="3"
+                                               Aspect="AspectFit"
+                                               HorizontalOptions="End"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                            <!---->
+                            <CarouselView.EmptyView>
+                                <ContentView>
+                                    <Frame>
+                                        <Label Text="ewqedsadddddddddddddddddddsaaaaaaaaaaaaaaa"/>
+                                    </Frame>
+
+                                </ContentView>
+                            </CarouselView.EmptyView>
+                            <!---->
+                        </CarouselView>
+                        <IndicatorView x:Name="indicatorView"
+                                       IndicatorColor="#E2E2E2"
+                                       SelectedIndicatorColor="#32B768"
+                   HorizontalOptions="Center" />
+                        <Grid Margin="18,36,18,0" ColumnDefinitions="3*,*">
+                            <VerticalStackLayout Grid.Column="0">
+                                <Label Text="Today New Arivable" 
+                               TextColor="#1F2937"
+                               FontSize="16"
+                               FontFamily="SemiBold"/>
+                                <Label Text="Best of the today  food list update"
+                               TextColor="#6B7280"
+                               FontSize="12"
+                               FontFamily="Medium"/>
+                                <!---->
+                            </VerticalStackLayout>
+                            <ImageButton Source="see_all.svg" 
+                                 HorizontalOptions="End"
+                                 VerticalOptions="Center"
+                                 Grid.Column="1"
+                                 />
+                        </Grid>
+                        <CollectionView Margin="0,16,0,0"
+                                BackgroundColor="Transparent"
+                                ItemsSource="{Binding carousel_offers}">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal"
+                                           SnapPointsType="MandatorySingle"
+                                           SnapPointsAlignment="End"/>
+                            </CollectionView.ItemsLayout>
+                            <!-- SnapPointsType="MandatorySingle"
+                           SnapPointsAlignment="End" -->
+
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="model:Carousel_offers">
+                                    <VerticalStackLayout Padding="2">
+                                        <Border
+                                            Stroke="Transparent"
+                                            Background="#fff"
+                                            Padding="10"
+                                            HeightRequest="200"
+                                            WidthRequest="150"
+                                            Margin="6,0,6,0"
+                                            HorizontalOptions="Start">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="11,11,11,11" />
+                                            </Border.StrokeShape>
+                                            <Border.Shadow>
+                                                <Shadow Brush="Black"
+                                                Offset="0,0"
+                                                Radius="10"
+                                                Opacity="0.2" />
+                                            </Border.Shadow>
+                                            <VerticalStackLayout>
+                                                <Frame BorderColor="Transparent"
+                                               Padding="0"
+                                               CornerRadius="8">
+                                                    <Image 
+                                                Source="{Binding image}"
+                                                HeightRequest="103"
+                                                WidthRequest="128"
+                                                Aspect="AspectFill"/>
+                                                </Frame>
+                                                <Label Text="{Binding title}"
+                                               FontFamily="SemiBold"
+                                               FontSize="16"
+                                               TextColor="#1F2937"
+                                               Margin="0,15,0,0"/>
+                                                <HorizontalStackLayout Padding="0">
+                                                    <Image VerticalOptions="Start"
+                                                   Source="location.svg"/>
+                                                    <Label Text="{Binding additionally}"
+                                                   FontSize="10"
+                                                   FontFamily="Medium"
+                                                   TextColor="#6B7280"/>
+                                                </HorizontalStackLayout>
+
+                                            </VerticalStackLayout>
+                                        </Border>
+                                    </VerticalStackLayout>
+
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                            <!---->
+                            <CollectionView.EmptyView>
+                                <ContentView>
+                                    <Frame>
+                                        <Label Text="ewqedsadddddddddddddddddddsaaaaaaaaaaaaaaa"/>
+                                    </Frame>
+                                </ContentView>
+                            </CollectionView.EmptyView>
+                            <!---->
+                        </CollectionView>
+                        <Grid Margin="18,36,18,0" ColumnDefinitions="3*,*">
+                            <VerticalStackLayout Grid.Column="0">
+                                <Label Text="Booking Restaurant" 
+                               TextColor="#1F2937"
+                               FontSize="16"
+                               FontFamily="SemiBold"/>
+                                <Label Text="Check your city Near by Restaurant"
+                               TextColor="#6B7280"
+                               FontSize="12"
+                               FontFamily="Medium"/>
+                                <!---->
+                            </VerticalStackLayout>
+                            <ImageButton Source="see_all.svg" 
+                                 HorizontalOptions="End"
+                                 VerticalOptions="Center"
+                                 Grid.Column="1"
+                                 />
+                        </Grid>
+                        <CollectionView Margin="12,13,12,100"
+                                BackgroundColor="Transparent"
+                                ItemsSource="{Binding сollectionViewRestorsan}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="model:CollectionViewRestorsan">
+                                    <VerticalStackLayout Padding="2">
+                                        <Border
+                                Stroke="Transparent"
+                                Background="#fff"
+                                Padding="10"
+                                Margin="6,3,6,3"
+                                HorizontalOptions="Start">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="11,11,11,11" />
+                                            </Border.StrokeShape>
+                                            <Border.Shadow>
+                                                <Shadow Brush="Black"
+                                            Offset="0,0"
+                                            Radius="10"
+                                            Opacity="0.2" />
+                                            </Border.Shadow>
+                                            <Grid ColumnDefinitions="Auto, *">
+                                                <Frame BorderColor="Transparent"
+                                           Padding="0"
+                                           Grid.Column="0"
+                                           CornerRadius="8">
+                                                    <Image Source="{Binding image}"
+                                                   HeightRequest="65"
+                                                   WidthRequest="65"/>
+                                                </Frame>
+                                                <VerticalStackLayout VerticalOptions="Center"
+                                                         Margin="15,0,0,0"
+                                                         Grid.Column="1">
+                                                    <Label Text="{Binding title}"
+                                               FontFamily="SemiBold"
+                                               FontSize="16"
+                                               TextColor="#1F2937"
+                                               />
+                                                    <HorizontalStackLayout Padding="0">
+                                                        <Image VerticalOptions="Center"
+                                               Source="location.svg"/>
+                                                        <Label Text="{Binding additionally}"
+                                               FontSize="10"
+                                               FontFamily="Medium"
+                                               TextColor="#6B7280"/>
+
+                                                    </HorizontalStackLayout>
+                                                </VerticalStackLayout>
+                                                <Button Grid.Column="1"
+                                            WidthRequest="88"
+                                            HeightRequest="25"
+                                            Padding="0"
+                                            CornerRadius="8"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="End"
+                                            Text="Book"
+                                            FontSize="12"
+                                            FontFamily="SemiBold"
+                                            TextColor="#ffffff"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HardHomeScreenViewModel}}, Path=GoToMapCommand}"
+                                            CommandParameter="{Binding .}"/>
+                                            </Grid>
+                                        </Border>
+                                    </VerticalStackLayout>
+
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                            <CollectionView.EmptyView>
+                                <ContentView>
+                                    <Frame>
+                                        <Label Text="ewqedsadddddddddddddddddddsaaaaaaaaaaaaaaa"/>
+                                    </Frame>
+                                </ContentView>
+                            </CollectionView.EmptyView>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+    </Grid>
+</ContentPage>

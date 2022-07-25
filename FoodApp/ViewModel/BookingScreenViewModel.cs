@@ -1,8 +1,13 @@
-﻿namespace FoodApp.ViewModel
+﻿using FoodApp.Model.View;
+
+namespace FoodApp.ViewModel
 {
     public partial class BookingScreenViewModel : BaseViewModel
     {
-        //TODO: сервис
+        public BookingScreenViewModel()
+        {
+            
+        }
         public ObservableCollection<BookingList> bookingList { get; set; } = FoodServices.BookingData;
         [RelayCommand]
         async Task GoToDetails(BookingList bookingItem)

@@ -1,4 +1,9 @@
-﻿namespace FoodApp;
+﻿
+
+using FoodApp.Controlers;
+using Microsoft.Maui.Controls.Compatibility.Hosting;
+
+namespace FoodApp;
 
 public static class MauiProgram
 {
@@ -6,7 +11,14 @@ public static class MauiProgram
     {
         var builder = MauiApp.CreateBuilder();
         builder
+
+
             .UseMauiApp<App>()
+            .UseMauiCompatibility()
+            .ConfigureMauiHandlers(handlers =>
+            {
+               //  handlers.AddCompatibilityRenderer(typeof(WebViewer), typeof(FoodApp.Platforms.Android.CastomRender.WebViewRender));
+            })
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("Inter-SemiBold.otf", "SemiBold");
@@ -14,6 +26,8 @@ public static class MauiProgram
                 fonts.AddFont("Inter-Regular.otf", "Regular");
                 fonts.AddFont("Inter-Bold.otf", "Bold");
             });
+   
+
         builder.Services.AddSingleton<FoodServices>();
 
         builder.Services.AddSingleton<HomeScreen>();
@@ -28,6 +42,13 @@ public static class MauiProgram
         builder.Services.AddSingleton<DetailsRestaurant>();
         builder.Services.AddSingleton<DetailsRestaurantViewModel>();
 
+        builder.Services.AddSingleton<HardHome>();
+        builder.Services.AddSingleton<HardHomeScreenViewModel>();
+
+        builder.Services.AddSingleton<MapPage>();
+        builder.Services.AddSingleton<MapViewModel>();
+
         return builder.Build();
     }
+
 }

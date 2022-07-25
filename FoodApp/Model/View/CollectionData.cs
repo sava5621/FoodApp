@@ -1,4 +1,4 @@
-﻿namespace FoodApp.Model
+﻿namespace FoodApp.Model.View
 {
     public class CollectionData
     {

@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FoodApp.View.DetailsRestaurant"
-             xmlns:model="clr-namespace:FoodApp.Model"
+             xmlns:model="clr-namespace:FoodApp.Model.View"
              xmlns:viewmodel="clr-namespace:FoodApp.ViewModel"
-             Title="DetailsRestaurant" Padding="-1">
+             Title="DetailsRestaurant" Padding="-1"
+             x:DataType="viewmodel:DetailsRestaurantViewModel">
     <Grid RowDefinitions="Auto, Auto, *"
           Padding="0"
           Margin="0">
@@ -54,10 +55,9 @@
                            FontSize="12"
                            FontFamily="Medium"/>
                 </HorizontalStackLayout>
-                <Image Source="{Binding BookingItem.fullSizeImage}"
-                       Aspect="AspectFill"
-                       Margin="0,25,0,25"
-                       HorizontalOptions="Center"/>
+                <Border Margin="0,25,0,25">
+                    <Image Source = "{Binding BookingItem.fullSizeImage}" />
+                </Border>
                 <Grid ColumnDefinitions="*,*">
                     <VerticalStackLayout Grid.Column="0">
                         <HorizontalStackLayout>

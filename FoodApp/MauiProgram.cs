@@ -1,6 +1,7 @@
 ﻿
 
 using FoodApp.Controlers;
+using FoodApp.Platforms.Android.CastomRender;
 using Microsoft.Maui.Controls.Compatibility.Hosting;
 
 namespace FoodApp;
@@ -17,7 +18,10 @@ public static class MauiProgram
             .UseMauiCompatibility()
             .ConfigureMauiHandlers(handlers =>
             {
-               //  handlers.AddCompatibilityRenderer(typeof(WebViewer), typeof(FoodApp.Platforms.Android.CastomRender.WebViewRender));
+#if __ANDROID__
+                handlers.AddCompatibilityRenderer(typeof(HybridWebView), typeof(HybridWebViewRenderer));
+#endif
+                //  handlers.AddCompatibilityRenderer(typeof(WebViewer), typeof(FoodApp.Platforms.Android.CastomRender.WebViewRender));
             })
             .ConfigureFonts(fonts =>
             {

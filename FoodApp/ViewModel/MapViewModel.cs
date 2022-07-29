@@ -12,7 +12,8 @@ namespace FoodApp.ViewModel
     {
         public MapViewModel()
         {
-            url = "https://u1648633.plsk.regruhosting.ru/YandexMap/byName?x=50.847&y=37.6";
+            
+            url = "https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI";
             //@"https://u1648633.plsk.regruhosting.ru/YandexMap/byName?x=50.847&y=37.6";
         }
         [ObservableProperty]

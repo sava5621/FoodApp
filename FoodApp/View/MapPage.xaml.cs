@@ -6,5 +6,6 @@ public partial class MapPage : ContentPage
 	{
 		InitializeComponent();
         BindingContext = viewModel;
+        WebVewvClass.e
     }
 }

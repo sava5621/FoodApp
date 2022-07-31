@@ -5,14 +5,10 @@
              xmlns:model="clr-namespace:FoodApp.Model.View"
              xmlns:viewmodel="clr-namespace:FoodApp.ViewModel"
              x:DataType="viewmodel:MapViewModel"
-             xmlns:control="clr-namespace:FoodApp.Controlers"
              Title="MapPage">
-    <VerticalStackLayout>
-        <Frame>
-            <Editor Text="{Binding Url}"/>
-        </Frame>
+    <Grid >
         <Button></Button>
-        <WebView x:Name="WebVewvClass"/>
-    </VerticalStackLayout>
+        <WebView Grid.Row="0" x:Name="testc"  Source="{ Binding Url}"/>
+    </Grid>
    
 </ContentPage>

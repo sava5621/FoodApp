@@ -6,6 +6,7 @@ public partial class DetailsRestaurant : ContentPage
 	{
 		InitializeComponent();
         BindingContext = viewModel;
+    
 
     }
 }

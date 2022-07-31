@@ -1,7 +1,6 @@
 ﻿
-
-using FoodApp.Controlers;
-using FoodApp.Platforms.Android.CastomRender;
+using FoodApp.Platforms.Android;
+using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Compatibility.Hosting;
 
 namespace FoodApp;
@@ -19,7 +18,7 @@ public static class MauiProgram
             .ConfigureMauiHandlers(handlers =>
             {
 #if __ANDROID__
-                handlers.AddCompatibilityRenderer(typeof(HybridWebView), typeof(HybridWebViewRenderer));
+                handlers.AddCompatibilityRenderer(typeof(WebView), typeof(GeoWebViewRenderer));
 #endif
                 //  handlers.AddCompatibilityRenderer(typeof(WebViewer), typeof(FoodApp.Platforms.Android.CastomRender.WebViewRender));
             })

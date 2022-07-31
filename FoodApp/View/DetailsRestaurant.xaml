@@ -128,8 +128,7 @@
                                       HorizontalOptions="FillAndExpand">
                                     <Frame BorderColor="Transparent"
                                                Padding="0"
-                                               Grid.Column="0"
-                                               CornerRadius="8">
+                                               Grid.Column="0">
                                         <Image Source="{Binding image}"/>
                                     </Frame>
                                     <VerticalStackLayout VerticalOptions="Center"

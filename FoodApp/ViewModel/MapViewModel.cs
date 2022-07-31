@@ -13,19 +13,15 @@ namespace FoodApp.ViewModel
         public MapViewModel()
         {
             
-            url = "https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI";
+             url = "https://u1648633.plsk.regruhosting.ru/Yandex2_0Api/byName?x=50.847&y=37.6";
             //@"https://u1648633.plsk.regruhosting.ru/YandexMap/byName?x=50.847&y=37.6";
         }
+
         [ObservableProperty]
         public CollectionViewRestorsan restoran;
         [ObservableProperty]
         public string url;
-        private Func<string, Task<string>> _evaluateJavascript;
-        public Func<string, Task<string>> EvaluateJavascript
-        {
-            get { return _evaluateJavascript; }
-            set { _evaluateJavascript = value; }
-        }
+
 
     }
 }

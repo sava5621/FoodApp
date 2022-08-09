@@ -1,5 +1,5 @@
 ﻿
-using FoodApp.Platforms.Android;
+
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Compatibility.Hosting;
 
@@ -18,7 +18,7 @@ public static class MauiProgram
             .ConfigureMauiHandlers(handlers =>
             {
 #if __ANDROID__
-                handlers.AddCompatibilityRenderer(typeof(WebView), typeof(GeoWebViewRenderer));
+                handlers.AddCompatibilityRenderer(typeof(WebView), typeof(Platforms.Android.GeoWebViewRenderer));
 #endif
                 //  handlers.AddCompatibilityRenderer(typeof(WebViewer), typeof(FoodApp.Platforms.Android.CastomRender.WebViewRender));
             })
@@ -29,9 +29,10 @@ public static class MauiProgram
                 fonts.AddFont("Inter-Regular.otf", "Regular");
                 fonts.AddFont("Inter-Bold.otf", "Bold");
             });
-   
 
+        builder.Services.AddSingleton<TokenServices>();
         builder.Services.AddSingleton<FoodServices>();
+        builder.Services.AddSingleton<dbServices>();
 
         builder.Services.AddSingleton<HomeScreen>();
         builder.Services.AddSingleton<HomeScreenViewModel>();
@@ -50,6 +51,15 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<MapPage>();
         builder.Services.AddSingleton<MapViewModel>();
+
+        builder.Services.AddSingleton<Registration>();
+        builder.Services.AddSingleton<RegistrationViewModel>();
+
+        builder.Services.AddSingleton<Login>();
+        builder.Services.AddSingleton<LoginViewModel>();
+
+        builder.Services.AddSingleton<CreateAccount>();
+        builder.Services.AddSingleton<CreateAccountViewModel>();
 
         return builder.Build();
     }

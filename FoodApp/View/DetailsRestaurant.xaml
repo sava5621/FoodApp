@@ -4,7 +4,7 @@
              x:Class="FoodApp.View.DetailsRestaurant"
              xmlns:model="clr-namespace:FoodApp.Model.View"
              xmlns:viewmodel="clr-namespace:FoodApp.ViewModel"
-             Title="DetailsRestaurant" Padding="-1"
+             Title="DetailsRestaurant" Padding="-2  "
              x:DataType="viewmodel:DetailsRestaurantViewModel">
     <Grid RowDefinitions="Auto, Auto, *"
           Padding="0"
@@ -129,7 +129,9 @@
                                     <Frame BorderColor="Transparent"
                                                Padding="0"
                                                Grid.Column="0">
-                                        <Image Source="{Binding image}"/>
+                                        <Image Source="{Binding image}"
+                                                   HeightRequest="65"
+                                                   WidthRequest="65"/>
                                     </Frame>
                                     <VerticalStackLayout VerticalOptions="Center"
                                                          Margin="15,0,0,0"
@@ -156,7 +158,7 @@
                                             VerticalOptions="End"
                                             Text="Check"
                                             FontFamily="SemiBold"
-                                            FontSize="10"/>
+                                            FontSize="12"/>
 
                                 </Grid>
                             </Frame>

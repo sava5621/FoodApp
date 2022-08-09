@@ -13,7 +13,7 @@ namespace FoodApp.ViewModel
         public MapViewModel()
         {
             
-             url = "https://u1648633.plsk.regruhosting.ru/Yandex2_0Api/byName?x=50.847&y=37.6";
+             url = "https://u1648633.plsk.regruhosting.ru/YandexMap/byName?x=55.847&y=37.6";
             //@"https://u1648633.plsk.regruhosting.ru/YandexMap/byName?x=50.847&y=37.6";
         }
 

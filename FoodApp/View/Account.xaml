@@ -198,6 +198,7 @@
                 BackgroundColor="#EB4646"
                 FontSize="16"
                 FontFamily="SemiBold"
-                HorizontalOptions="Center"/>
+                HorizontalOptions="Center"
+                Command="{Binding LogoutCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

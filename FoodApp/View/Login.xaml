@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodApp.View.Login"
+             Title="Login"
+              xmlns:viewmodel="clr-namespace:FoodApp.ViewModel"
+             x:DataType="viewmodel:LoginViewModel">
+    <VerticalStackLayout>
+        <Label 
+            Text="Login"
+            VerticalOptions="Center" 
+            HorizontalOptions="Start"
+            TextColor="#374151"
+            FontSize="20"
+            FontFamily="SemiBold"
+            Margin="24,100,0,24"/>
+        <Label
+            Text="Email address"
+            Margin="31,0,0,0"
+            TextColor="#374151"
+            FontSize="14"
+            FontFamily="SemiBold"
+            />
+        <Border Padding="2"
+                Margin="24,0,24,0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="12,12,12,12" />
+            </Border.StrokeShape>
+            <Entry Placeholder="Eg namaemail@emailkamu.com"
+                    Keyboard="Email"
+                    FontSize="12"
+                    Margin="7,0,0,0"
+                    FontFamily="SemiBold"
+                   x:Name="emailE"
+                    Text="{Binding Email}"/>
+        </Border>
+        <Label
+            Text="Password"
+            Margin="31,20,0,0"
+            TextColor="#374151"
+            FontSize="14"
+            FontFamily="SemiBold"
+            />
+        <Border Padding="2"
+                Margin="24,0,24,0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="12,12,12,12" />
+            </Border.StrokeShape>
+            <Entry  Placeholder="**** **** ****"
+                    Keyboard="Text"
+                    FontSize="12"
+                    Margin="7,0,0,0"
+                    FontFamily="SemiBold"
+                    IsPassword="true"
+                    x:Name="passE"
+                    Text="{Binding Pass}"/>
+        </Border>
+        <Label
+            Text="Forget Password?"
+            Margin="0,10,31,0"
+            TextColor="#32B768"
+            FontSize="14"
+            HorizontalOptions="End"
+            FontFamily="SemiBold"
+            />
+        <Button Text="Login"
+            Margin="60,40,60,0"
+            TextColor="White"
+            FontSize="14"
+            FontFamily="SemiBold"
+            Command="{Binding LoginUserCommand}">
+            <Button.Triggers>
+                <DataTrigger TargetType="Button"
+                     Binding="{Binding Source={x:Reference emailE},
+                                       Path=Text.Length}"
+                     
+                     Value="0">
+                    <Setter Property="IsEnabled"
+                            Value="False" />
+
+                </DataTrigger>
+                <DataTrigger TargetType="Button"
+                     Binding="{Binding Source={x:Reference passE},
+                                       Path=Text.Length}"
+                     Value="0">
+                    <Setter Property="IsEnabled"
+                            Value="False" />
+
+                </DataTrigger>
+            </Button.Triggers>
+        </Button>
+    </VerticalStackLayout>
+</ContentPage>

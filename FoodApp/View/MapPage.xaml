@@ -5,10 +5,36 @@
              xmlns:model="clr-namespace:FoodApp.Model.View"
              xmlns:viewmodel="clr-namespace:FoodApp.ViewModel"
              x:DataType="viewmodel:MapViewModel"
-             Title="MapPage">
-    <Grid >
-        <Button></Button>
-        <WebView Grid.Row="0" x:Name="testc"  Source="{ Binding Url}"/>
+             Title="MapPage"
+             Padding="-2">
+    <Grid RowDefinitions="Auto, *">
+       
+        <WebView Grid.Row="1" x:Name="testc"  Source="{ Binding Url}"/>
+        
+        <Border Grid.Row="0"
+                
+             Stroke="Transparent"
+                                Background="#32B768"
+                                Padding="10"
+                                Margin="0,0,0,-10">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0,0,16,16" />
+            </Border.StrokeShape>
+            <Grid ColumnDefinitions="*,3*,*">
+                <Label Text="Details Restaurant"
+                       TextColor="#fff"
+                       Grid.Column="1"                  
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontSize="12"
+                       FontFamily="SemiBold"/>
+                <ImageButton Grid.Column="0"
+                             Source="icon_back.svg"
+                             HorizontalOptions="Start"
+                             VerticalOptions="Center"/>
+            </Grid>
+        </Border>
+        
     </Grid>
    
 </ContentPage>

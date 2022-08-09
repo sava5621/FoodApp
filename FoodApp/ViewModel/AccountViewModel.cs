@@ -18,5 +18,12 @@ namespace FoodApp.ViewModel
         bool notify_is_visible = true;
         [ObservableProperty]
         int notify_count = 5;
+        [RelayCommand]
+        async Task Logout()
+        {
+            dbServices db = new dbServices();
+            db.RemoveToken();
+            App.Current.MainPage = new AppShell();
+        }
     }
 }

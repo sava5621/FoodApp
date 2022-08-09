@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodApp.View.Registration"
+             Title="Registration"
+             xmlns:model="clr-namespace:FoodApp.Model.View"
+             xmlns:viewmodel="clr-namespace:FoodApp.ViewModel"
+             x:DataType="viewmodel:RegistrationViewModel"
+             BackgroundColor="White">
+    <Grid RowDefinitions="*,*">
+        <Image Grid.Row="0" BackgroundColor="White"
+               HorizontalOptions="Center"
+               Source="reg.svg"
+               VerticalOptions="Center"/>
+        <VerticalStackLayout Grid.Row="1"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Start">
+            <Label Text="Welcome"
+                   FontSize="21"
+                   TextColor="#1F2937"
+                   FontFamily="SemiBold"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"/>
+            <Label Text="Before enjoying Foodmedia services"
+                   FontSize="18"
+                   TextColor="#1F2937"
+                   FontFamily="Regular"
+                   HorizontalOptions="Center"/>
+            <Label Text="Please register first"
+                   FontSize="18"
+                   TextColor="#1F2937"
+                   FontFamily="Regular"
+                   HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+        <VerticalStackLayout  Grid.Row="1" VerticalOptions="End">
+            <Button Margin="60,0,60,16"
+                    Text="Create Account"
+                    FontFamily="Bold"
+                    FontSize="14"
+                    Command="{Binding GoToCreateCommand}"/>
+            <Button Margin="60,0,60,16"
+                    Text="Login"
+                     FontFamily="Bold"
+                    FontSize="14"
+                    BackgroundColor="#D1FAE5"
+                    TextColor="#10B981"
+                    Command="{Binding GoToLoginCommand}"/>
+            <Label Text="By logging in or registering, you have agreed to the Terms and "
+                   TextColor="#242323"
+                   FontSize="10"
+                   FontFamily="Regular"
+                   HorizontalOptions="Center"
+                   />
+            <Label Text="Conditions and Privacy Policy. "
+                   TextColor="#242323"
+                   FontSize="10"
+                   FontFamily="Regular"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"
+                   />
+            <Button Command="{Binding ClearCommand}">
+               
+            </Button>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

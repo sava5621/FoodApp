@@ -50,7 +50,8 @@
                        BackgroundColor="Transparent"/>
             </Frame>
         </Grid>
-        <CollectionView Grid.Row="1" 
+        <CollectionView Grid.Row="1"
+                        ItemsUpdatingScrollMode="KeepScrollOffset"
                         ItemsSource="{Binding homes}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:HomeModel">

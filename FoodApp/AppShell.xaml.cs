@@ -1,12 +1,11 @@
-﻿namespace FoodApp;
+﻿using Microsoft.Maui.Controls;
+
+namespace FoodApp;
 
 public partial class AppShell : Shell
 {
-    public AppShell()
+    public  AppShell()
     {
         InitializeComponent();
-        Routing.RegisterRoute(nameof(DetailsRestaurant), typeof(DetailsRestaurant));
-        Routing.RegisterRoute(nameof(MapPage), typeof(MapPage));
     }
-
 }

@@ -1,7 +1,14 @@
 ﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
+using System.Xml;
+using static Java.Util.Jar.Attributes;
 using Formatting = Newtonsoft.Json.Formatting;
 
 namespace FoodApp.Services
@@ -18,11 +25,11 @@ namespace FoodApp.Services
         string conectionSTR = "https://u1648633.plsk.regruhosting.ru/Auth";
         public async Task<string> GetAccToken()
         {
-            UserToken token = await db.GetToken();
+            UserToken token =await db.GetToken();
             Dictionary<string, string> param = new Dictionary<string, string>();
             param.Add("Id", token.Id);
             param.Add("Name", token.Name);
-            param.Add("CreationT", token.CreationT);
+            param.Add("CreationT",token.CreationT);
             param.Add("DryingT", token.DryingT);
             param.Add("Email", token.Email);
             param.Add("Image", token.Image);
@@ -43,9 +50,9 @@ namespace FoodApp.Services
             var response = await httpClient.PostAsync(conectionSTR + "/Login", content);
             if (response.IsSuccessStatusCode)
             {
-                await db.AddToken(
-                     JsonConvert.DeserializeObject<Dictionary<string, string>>(
-                     await response.Content.ReadAsStringAsync()));
+               await db.AddToken(
+                    JsonConvert.DeserializeObject<Dictionary<string, string>>(
+                    await response.Content.ReadAsStringAsync()));
                 return true;
             }
             else return false;

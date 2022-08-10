@@ -57,6 +57,9 @@
                 </HorizontalStackLayout>
                 <Border Margin="0,25,0,25">
                     <Image Source = "{Binding BookingItem.fullSizeImage}" />
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="16,16,16,16" />
+                    </Border.StrokeShape>
                 </Border>
                 <Grid ColumnDefinitions="*,*">
                     <VerticalStackLayout Grid.Column="0">

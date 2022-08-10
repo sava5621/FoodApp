@@ -1,8 +1,5 @@
-﻿using FoodApp.Model.View;
-using GoogleGson;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Net.Http.Json;
-using System.Threading;
 
 namespace FoodApp.Services
 {
@@ -23,10 +20,10 @@ namespace FoodApp.Services
         }
         public async void GetAll()
         {
-             await GetCarouselAdv();
-             await GetCarouselOff();
-             await GetBookingData();
-             await GetCollectionViewRestorsan();
+            await GetCarouselAdv();
+            await GetCarouselOff();
+            await GetBookingData();
+            await GetCollectionViewRestorsan();
         }
         public async Task<ObservableCollection<CollectionViewRestorsan>> GetCollectionViewRestorsan()
         {
@@ -87,11 +84,11 @@ namespace FoodApp.Services
                 BookingData.Clear();
             HttpContent content = new StringContent(await tokenServices.GetAccToken());
             content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
-            var response = await httpClient.PostAsync(conectionSTR+ "ListData/User_has_restoran", content);
+            var response = await httpClient.PostAsync(conectionSTR + "ListData/User_has_restoran", content);
             if (response.IsSuccessStatusCode)
             {
                 string s = await response.Content.ReadAsStringAsync();
-               List<FoodApi.Model.Services.Restoran> ansver = await response.Content.ReadFromJsonAsync<List<FoodApi.Model.Services.Restoran>>();
+                List<FoodApi.Model.Services.Restoran> ansver = await response.Content.ReadFromJsonAsync<List<FoodApi.Model.Services.Restoran>>();
                 foreach (var i in ansver)
                 {
                     BookingData.Add(new BookingList(i.title,
